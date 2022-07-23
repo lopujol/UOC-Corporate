@@ -1,8 +1,12 @@
 package corp.uoc.edu;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,17 +15,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        int mat = 5;
-        int quim = 5;
-        int fis = 5;
-        int prom = 0;
+        final Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), SecondActivity.class);
+                startActivity(i);
+            }
+        });
 
-        prom = (mat + quim + fis) / 3;
-
-        if(prom >   = 6) {
-            Toast.makeText(this, "Aprovat", Toast.LENGTH_SHORT).show();
-        } else if (prom <=5) {
-            Toast.makeText(this, "Suspès", Toast.LENGTH_SHORT).show();
-        }
+        Log.i("MainActivity", "Jordi Pujol");
     }
+
 }
