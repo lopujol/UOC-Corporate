@@ -1,29 +1,22 @@
-package corp.uoc.edu;
+package corp.uoc.edu
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import corp.uoc.edu.R
+import android.content.Intent
+import android.util.Log
+import android.widget.Button
+import corp.uoc.edu.SecondActivity
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-
-public class MainActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        final Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), SecondActivity.class);
-                startActivity(i);
-            }
-        });
-
-        Log.i("MainActivity", "Jordi Pujol");
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val button = findViewById<Button>(R.id.button)
+        button.setOnClickListener {
+            val i = Intent(applicationContext, SecondActivity::class.java)
+            startActivity(i)
+        }
+        Log.i("MainActivity", "Jordi Pujol")
     }
-
 }
